@@ -17,10 +17,10 @@ public class HealthProfessional {
         this.specialization = "Unknown";
         this.status = STATUS_RESTING;
         this.currentAppointments = 0;
-        this.maxAppointments = 100;
+        this.maxAppointments = 50;
     }
 
-    public HealthProfessional(int id, String name, String specialization, String status) {
+    public HealthProfessional(int id, String name, String specialization, String status, int maxAppointments) {
         this.id = id;
         this.name = name;
         this.specialization = specialization;
@@ -33,6 +33,8 @@ public class HealthProfessional {
             this.status = STATUS_RESTING;
             System.out.println("Warning: The status is illegal and has been set by default" + STATUS_RESTING);
         }
+        this.currentAppointments = 0;
+        this.maxAppointments = maxAppointments;
     }
 
     public void printBaseInfo()
