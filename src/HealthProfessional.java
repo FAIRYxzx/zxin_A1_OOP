@@ -7,6 +7,8 @@ public class HealthProfessional {
     private String name;
     private String specialization;
     private String status;
+    private int currentAppointments;
+    private int maxAppointments;
 
     public HealthProfessional()
     {
@@ -14,6 +16,8 @@ public class HealthProfessional {
         this.name = "Unknown";
         this.specialization = "Unknown";
         this.status = STATUS_RESTING;
+        this.currentAppointments = 0;
+        this.maxAppointments = 100;
     }
 
     public HealthProfessional(int id, String name, String specialization, String status) {
@@ -37,6 +41,28 @@ public class HealthProfessional {
         System.out.println("Name：" + name);
         System.out.println("Professional field：" + specialization);
         System.out.println("Current status：" + status);
+        System.out.println("Appointment status：" + currentAppointments + "/" + maxAppointments);
+    }
+    public boolean hasAvailableQuota()
+    {
+        return currentAppointments < maxAppointments;
+    }
+
+
+    public void incrementAppointments()
+    {
+        if (hasAvailableQuota())
+        {
+            currentAppointments++;
+        }
+    }
+
+    public void decrementAppointments()
+    {
+        if (currentAppointments > 0)
+        {
+            currentAppointments--;
+        }
     }
     public int getId()
     {
@@ -61,5 +87,13 @@ public class HealthProfessional {
         } else {
             System.out.println("Warning: The status is illegal and has not been modified");
         }
+    }
+    public int getMaxAppointments()
+    {
+        return maxAppointments;
+    }
+    public int getCurrentAppointments()
+    {
+        return currentAppointments;
     }
 }
