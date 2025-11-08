@@ -22,4 +22,7 @@ public class GeneralPractitioner extends HealthProfessional {
     {
         return providesHouseCalls;
     }
+    public void setProvidesHouseCalls(boolean providesHouseCalls) {
+        this.providesHouseCalls = providesHouseCalls;
+    }
 }

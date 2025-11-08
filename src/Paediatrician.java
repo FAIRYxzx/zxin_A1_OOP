@@ -26,4 +26,7 @@ public class Paediatrician extends HealthProfessional {
     {
         return canDoVaccination;
     }
+    public void setCanDoVaccination(boolean canDoVaccination) {
+        this.canDoVaccination = canDoVaccination;
+    }
 }
