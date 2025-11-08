@@ -14,10 +14,30 @@ public class Appointment {
 
     public Appointment(String patientName, String patientPhone, String timeSlot, HealthProfessional doctor)
     {
-        this.patientName = patientName;
-        this.patientPhone = patientPhone;
-        this.timeSlot = timeSlot;
-        this.doctor = doctor;
+        if (patientName == null || patientName.trim().isEmpty()) {
+            System.out.println("Warning: Patient name cannot be empty, set to 'Unknown' by default");
+            this.patientName = "Unknown";
+        } else {
+            this.patientName = patientName;
+        }
+        if (patientPhone == null || patientPhone.trim().isEmpty()) {
+            System.out.println("Warning: Patient phone cannot be empty, set to 'Unknown' by default");
+            this.patientPhone = "Unknown";
+        } else {
+            this.patientPhone = patientPhone;
+        }
+        if (timeSlot == null || timeSlot.trim().isEmpty()) {
+            System.out.println("Warning: Time slot cannot be empty, set to 'Unknown' by default");
+            this.timeSlot = "Unknown";
+        } else {
+            this.timeSlot = timeSlot;
+        }
+        if (doctor == null) {
+            System.out.println("Warning: Doctor cannot be null, create default doctor by default");
+            this.doctor = new HealthProfessional();
+        } else {
+            this.doctor = doctor;
+        }
     }
 
     public void printInfo()
