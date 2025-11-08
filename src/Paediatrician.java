@@ -6,9 +6,8 @@ public class Paediatrician extends HealthProfessional {
         this.canDoVaccination = false;
     }
 
-    public Paediatrician(int id, String name, String specialization, String status, boolean canDoVaccination)
-    {
-        super(id, name, specialization, status);
+    public Paediatrician(int id, String name, String specialization, String status, int currentAppointments,  int maxAppointments, boolean canDoVaccination) {
+        super(id, name, specialization, status, currentAppointments, maxAppointments);
         this.canDoVaccination = canDoVaccination;
     }
     public void printDetails()

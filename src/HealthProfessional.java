@@ -20,7 +20,7 @@ public class HealthProfessional {
         this.maxAppointments = 50;
     }
 
-    public HealthProfessional(int id, String name, String specialization, String status, int maxAppointments) {
+    public HealthProfessional(int id, String name, String specialization, String status, int currentAppointments, int maxAppointments) {
         this.id = id;
         this.name = name;
         this.specialization = specialization;

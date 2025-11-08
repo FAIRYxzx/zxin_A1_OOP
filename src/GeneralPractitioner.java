@@ -5,9 +5,9 @@ public class GeneralPractitioner extends HealthProfessional {
         super();
         this.providesHouseCalls = false;
     }
-    public GeneralPractitioner(int id, String name, String specialization, String status, int maxAppointments, boolean providesHouseCalls)
+    public GeneralPractitioner(int id, String name, String specialization, String status,int currentAppointments,  int maxAppointments, boolean providesHouseCalls)
     {
-        super(id, name, specialization, status, maxAppointments);
+        super(id, name, specialization, status, currentAppointments, maxAppointments);
         this.providesHouseCalls = providesHouseCalls;
     }
 
