@@ -27,9 +27,14 @@ public class Appointment {
             this.patientPhone = patientPhone;
         }
         if (timeSlot == null || timeSlot.trim().isEmpty()) {
-            System.out.println("Warning: Time slot cannot be empty, set to 'Unknown' by default");
+            System.out.println("Warning：Invalid appointment time, set to Unknown'");
             this.timeSlot = "Unknown";
-        } else {
+        }
+        else if (!isValidTimeSlot(timeSlot)) {
+            System.out.println("Warning：Invalid time (need 8:00-17:00 HH:mm format, min 00-59), has been set to default '08:00'");
+            this.timeSlot = "08:00";
+        }
+        else {
             this.timeSlot = timeSlot;
         }
         if (doctor == null) {
@@ -39,7 +44,10 @@ public class Appointment {
             this.doctor = doctor;
         }
     }
-
+    private boolean isValidTimeSlot(String timeSlot) {
+        String timeRegex = "^(08|09|1[0-7]):([0-5][0-9])$";
+        return timeSlot.matches(timeRegex);
+    }
     public void printInfo()
     {
         System.out.println("Patient's name：" + patientName);
