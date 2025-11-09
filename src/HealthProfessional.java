@@ -48,7 +48,6 @@ public class HealthProfessional {
             this.status = STATUS_RESTING;
             System.out.println("Warning: The status is illegal and has been set by default" + STATUS_RESTING);
         }
-        this.currentAppointments = 0;
         if (currentAppointments < 0){
             System.out.println("Warning: The current reservation number cannot be negative and defaults to 0");
         }else {
