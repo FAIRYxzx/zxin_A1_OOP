@@ -1,6 +1,11 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class HealthProfessional {
     public static final String STATUS_IN_CONSULTATION = "Receiving patients";
     public static final String STATUS_RESTING = "Stop receiving patients";
+
+    private static final Set<Integer> existingIds = new HashSet<>();
 
     private final int id;
     private String name;
@@ -20,12 +25,19 @@ public class HealthProfessional {
     }
 
     public HealthProfessional(int id, String name, String specialization, String status, int currentAppointments, int maxAppointments) {
-        if (id < 0) {
-            System.out.println("Warning: ID cannot be negative, set to 0 by default");
-            this.id = 0;
-        } else {
-            this.id = id;
+        int actualId = id < 0 ? 0 : id;
+        if (existingIds.contains(actualId)) {
+            System.out.println("Warning: ID " + actualId + " is duplicate, cannot create HealthProfessional.");
+            this.id = -1;
+            this.name = "Unknown";
+            this.specialization = "Unknown";
+            this.status = STATUS_RESTING;
+            this.currentAppointments = 0;
+            this.maxAppointments = 50;
+            return;
         }
+        this.id = actualId;
+        existingIds.add(actualId);
         if (name == null || name.trim().isEmpty()) {
             System.out.println("Warning: Name cannot be empty, set to 'Unknown' by default");
             this.name = "Unknown";
