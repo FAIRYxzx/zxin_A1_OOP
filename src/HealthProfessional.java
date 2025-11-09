@@ -1,9 +1,8 @@
 public class HealthProfessional {
-    public static final String STATUS_ON_CALL = "On call";
     public static final String STATUS_IN_CONSULTATION = "Receiving patients";
-    public static final String STATUS_RESTING = "At rest";
+    public static final String STATUS_RESTING = "Stop receiving patients";
 
-    private int id;
+    private final int id;
     private String name;
     private String specialization;
     private String status;
@@ -39,7 +38,7 @@ public class HealthProfessional {
         } else {
             this.specialization = specialization;
         }
-        if (status.equals(STATUS_ON_CALL) || status.equals(STATUS_IN_CONSULTATION) || status.equals(STATUS_RESTING))
+        if (status.equals(STATUS_IN_CONSULTATION) || status.equals(STATUS_RESTING))
         {
             this.status = status;
         }
@@ -107,7 +106,7 @@ public class HealthProfessional {
         return status;
     }
     public void setStatus(String status) {
-        if (status.equals(STATUS_ON_CALL) || status.equals(STATUS_IN_CONSULTATION) || status.equals(STATUS_RESTING))
+        if (status.equals(STATUS_IN_CONSULTATION) || status.equals(STATUS_RESTING))
         {
             this.status = status;
         } else {
