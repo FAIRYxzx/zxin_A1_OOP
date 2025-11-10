@@ -85,11 +85,11 @@ public class AssignmentOne {
         System.out.println("Whether to provide vaccine services after modification: " + paed.isCanDoVaccination());
         // Appointment boundary value test (empty name, illegal time slot, empty doctor)
         System.out.println("\n=== Appointment boundary test ===");
-        createAppointment("Jessica", "13800138001", "09:30", gp); // Legal appointment
-        createAppointment("", "13900139002", "10:00", gp); // Empty name
-        createAppointment("Lisa", "13700137003", "19:00", paed); //The illegal time slot (19:00 to 17:00) is changed to 8:00 by default
-        createAppointment("Thomas", "13600136004", "14:00", paed); // Appointments exceeding the quota
-        createAppointment("Mark", "13400134006", "16:00", null); // Empty doctor
+        createAppointment("Jessica", "13200132001", "09:30", gp); // Legal appointment
+        createAppointment("", "13300133002", "10:00", gp); // Empty name
+        createAppointment("Lisa", "13400134003", "19:00", paed); //The illegal time slot (19:00 to 17:00) is changed to 8:00 by default
+        createAppointment("Thomas", "13100131004", "14:00", paed); // Appointments exceeding the quota
+        createAppointment("Mark", "13500135006", "16:00", null); // Empty doctor
         // Print the final valid reservation list
         System.out.println("\n=== Final valid reservation list ===");
         printExistingAppointments();
